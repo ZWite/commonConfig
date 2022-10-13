@@ -16,3 +16,4 @@ spring:
         max-wait: 60000
     timeout: 100000
 port: 6600
+profile: dev
