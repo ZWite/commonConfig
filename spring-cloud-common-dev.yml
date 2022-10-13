@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: cloud-base
   redis:
     port: 6600
     host: 39.107.245.58
@@ -15,5 +17,24 @@ spring:
         #最大阻塞等待时间 负值没有限制
         max-wait: 60000
     timeout: 100000
-port: 6600
-profile: dev
+  #数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://39.107.245.58:3310/db01?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 123456
+
+
+# Eureka 配置
+eureka:
+  instance:
+    instance-id: spring-provider-8001
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+      
+      
+logging:
+  level:
+    com.zhang: debug
+    org.springframework: warn
